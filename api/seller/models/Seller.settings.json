@@ -1,0 +1,35 @@
+{
+  "connection": "default",
+  "collectionName": "sellers",
+  "info": {
+    "name": "seller",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "fullname": {
+      "default": "",
+      "type": "string"
+    },
+    "email": {
+      "default": "",
+      "type": "email"
+    },
+    "phone": {
+      "default": "",
+      "type": "integer"
+    },
+    "password": {
+      "default": "",
+      "type": "password"
+    },
+    "type": {
+      "model": "type",
+      "via": "sellers"
+    }
+  }
+}

@@ -1,8 +1,8 @@
 {
   "connection": "default",
-  "collectionName": "categories",
+  "collectionName": "types",
   "info": {
-    "name": "category",
+    "name": "type",
     "description": ""
   },
   "options": {
@@ -11,13 +11,13 @@
     "comment": ""
   },
   "attributes": {
-    "nama_kategory": {
+    "account_type_name": {
       "default": "",
       "type": "string"
     },
-    "description": {
-      "default": "",
-      "type": "text"
+    "sellers": {
+      "collection": "seller",
+      "via": "type"
     }
   }
 }

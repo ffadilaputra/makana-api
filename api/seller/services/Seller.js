@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Restaurant.js service
+ * Seller.js service
  *
  * @description: A set of functions similar to controller's actions to avoid code duplication.
  */
@@ -15,20 +15,20 @@ const utils = require('strapi-hook-bookshelf/lib/utils/');
 module.exports = {
 
   /**
-   * Promise to fetch all restaurants.
+   * Promise to fetch all sellers.
    *
    * @return {Promise}
    */
 
   fetchAll: (params) => {
     // Convert `params` object to filters compatible with Bookshelf.
-    const filters = strapi.utils.models.convertParams('restaurant', params);
+    const filters = strapi.utils.models.convertParams('seller', params);
     // Select field to populate.
-    const populate = Restaurant.associations
+    const populate = Seller.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias);
 
-    return Restaurant.query(function(qb) {
+    return Seller.query(function(qb) {
       _.forEach(filters.where, (where, key) => {
         if (_.isArray(where.value) && where.symbol !== 'IN') {
           for (const value in where.value) {
@@ -51,33 +51,33 @@ module.exports = {
   },
 
   /**
-   * Promise to fetch a/an restaurant.
+   * Promise to fetch a/an seller.
    *
    * @return {Promise}
    */
 
   fetch: (params) => {
     // Select field to populate.
-    const populate = Restaurant.associations
+    const populate = Seller.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias);
 
-    return Restaurant.forge(_.pick(params, 'id')).fetch({
+    return Seller.forge(_.pick(params, 'id')).fetch({
       withRelated: populate
     });
   },
 
   /**
-   * Promise to count a/an restaurant.
+   * Promise to count a/an seller.
    *
    * @return {Promise}
    */
 
   count: (params) => {
     // Convert `params` object to filters compatible with Bookshelf.
-    const filters = strapi.utils.models.convertParams('restaurant', params);
+    const filters = strapi.utils.models.convertParams('seller', params);
 
-    return Restaurant.query(function(qb) {
+    return Seller.query(function(qb) {
       _.forEach(filters.where, (where, key) => {
         if (_.isArray(where.value)) {
           for (const value in where.value) {
@@ -91,50 +91,50 @@ module.exports = {
   },
 
   /**
-   * Promise to add a/an restaurant.
+   * Promise to add a/an seller.
    *
    * @return {Promise}
    */
 
   add: async (values) => {
     // Extract values related to relational data.
-    const relations = _.pick(values, Restaurant.associations.map(ast => ast.alias));
-    const data = _.omit(values, Restaurant.associations.map(ast => ast.alias));
+    const relations = _.pick(values, Seller.associations.map(ast => ast.alias));
+    const data = _.omit(values, Seller.associations.map(ast => ast.alias));
 
     // Create entry with no-relational data.
-    const entry = await Restaurant.forge(data).save();
+    const entry = await Seller.forge(data).save();
 
     // Create relational data and return the entry.
-    return Restaurant.updateRelations({ id: entry.id , values: relations });
+    return Seller.updateRelations({ id: entry.id , values: relations });
   },
 
   /**
-   * Promise to edit a/an restaurant.
+   * Promise to edit a/an seller.
    *
    * @return {Promise}
    */
 
   edit: async (params, values) => {
     // Extract values related to relational data.
-    const relations = _.pick(values, Restaurant.associations.map(ast => ast.alias));
-    const data = _.omit(values, Restaurant.associations.map(ast => ast.alias));
+    const relations = _.pick(values, Seller.associations.map(ast => ast.alias));
+    const data = _.omit(values, Seller.associations.map(ast => ast.alias));
 
     // Create entry with no-relational data.
-    const entry = Restaurant.forge(params).save(data);
+    const entry = Seller.forge(params).save(data);
 
     // Create relational data and return the entry.
-    return Restaurant.updateRelations(Object.assign(params, { values: relations }));
+    return Seller.updateRelations(Object.assign(params, { values: relations }));
   },
 
   /**
-   * Promise to remove a/an restaurant.
+   * Promise to remove a/an seller.
    *
    * @return {Promise}
    */
 
   remove: async (params) => {
     params.values = {};
-    Restaurant.associations.map(association => {
+    Seller.associations.map(association => {
       switch (association.nature) {
         case 'oneWay':
         case 'oneToOne':
@@ -151,45 +151,45 @@ module.exports = {
       }
     });
 
-    await Restaurant.updateRelations(params);
+    await Seller.updateRelations(params);
 
-    return Restaurant.forge(params).destroy();
+    return Seller.forge(params).destroy();
   },
 
   /**
-   * Promise to search a/an restaurant.
+   * Promise to search a/an seller.
    *
    * @return {Promise}
    */
 
   search: async (params) => {
     // Convert `params` object to filters compatible with Bookshelf.
-    const filters = strapi.utils.models.convertParams('restaurant', params);
+    const filters = strapi.utils.models.convertParams('seller', params);
     // Select field to populate.
-    const populate = Restaurant.associations
+    const populate = Seller.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias);
 
-    const associations = Restaurant.associations.map(x => x.alias);
-    const searchText = Object.keys(Restaurant._attributes)
-      .filter(attribute => attribute !== Restaurant.primaryKey && !associations.includes(attribute))
-      .filter(attribute => ['string', 'text'].includes(Restaurant._attributes[attribute].type));
+    const associations = Seller.associations.map(x => x.alias);
+    const searchText = Object.keys(Seller._attributes)
+      .filter(attribute => attribute !== Seller.primaryKey && !associations.includes(attribute))
+      .filter(attribute => ['string', 'text'].includes(Seller._attributes[attribute].type));
 
-    const searchNoText = Object.keys(Restaurant._attributes)
-      .filter(attribute => attribute !== Restaurant.primaryKey && !associations.includes(attribute))
-      .filter(attribute => !['string', 'text', 'boolean', 'integer', 'decimal', 'float'].includes(Restaurant._attributes[attribute].type));
+    const searchNoText = Object.keys(Seller._attributes)
+      .filter(attribute => attribute !== Seller.primaryKey && !associations.includes(attribute))
+      .filter(attribute => !['string', 'text', 'boolean', 'integer', 'decimal', 'float'].includes(Seller._attributes[attribute].type));
 
-    const searchInt = Object.keys(Restaurant._attributes)
-      .filter(attribute => attribute !== Restaurant.primaryKey && !associations.includes(attribute))
-      .filter(attribute => ['integer', 'decimal', 'float'].includes(Restaurant._attributes[attribute].type));
+    const searchInt = Object.keys(Seller._attributes)
+      .filter(attribute => attribute !== Seller.primaryKey && !associations.includes(attribute))
+      .filter(attribute => ['integer', 'decimal', 'float'].includes(Seller._attributes[attribute].type));
 
-    const searchBool = Object.keys(Restaurant._attributes)
-      .filter(attribute => attribute !== Restaurant.primaryKey && !associations.includes(attribute))
-      .filter(attribute => ['boolean'].includes(Restaurant._attributes[attribute].type));
+    const searchBool = Object.keys(Seller._attributes)
+      .filter(attribute => attribute !== Seller.primaryKey && !associations.includes(attribute))
+      .filter(attribute => ['boolean'].includes(Seller._attributes[attribute].type));
 
     const query = (params._q || '').replace(/[^a-zA-Z0-9.-\s]+/g, '');
 
-    return Restaurant.query(qb => {
+    return Seller.query(qb => {
       // Search in columns which are not text value.
       searchNoText.forEach(attribute => {
         qb.orWhereRaw(`LOWER(${attribute}) LIKE '%${_.toLower(query)}%'`);
@@ -208,7 +208,7 @@ module.exports = {
       }
 
       // Search in columns with text using index.
-      switch (Restaurant.client) {
+      switch (Seller.client) {
         case 'pg': {
           const searchQuery = searchText.map(attribute =>
             _.toLower(attribute) === attribute

@@ -2,72 +2,72 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/restaurants",
-      "handler": "Restaurant.find",
+      "path": "/sellers",
+      "handler": "Seller.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/restaurants/count",
-      "handler": "Restaurant.count",
+      "path": "/sellers/count",
+      "handler": "Seller.count",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/restaurants/:id",
-      "handler": "Restaurant.findOne",
+      "path": "/sellers/:id",
+      "handler": "Seller.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/restaurants",
-      "handler": "Restaurant.create",
+      "path": "/sellers",
+      "handler": "Seller.create",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/restaurants/:id",
-      "handler": "Restaurant.update",
+      "path": "/sellers/:id",
+      "handler": "Seller.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/restaurants/:id",
-      "handler": "Restaurant.destroy",
+      "path": "/sellers/:id",
+      "handler": "Seller.destroy",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/restaurants/:id/relationships/:relation",
-      "handler": "Restaurant.createRelation",
+      "path": "/sellers/:id/relationships/:relation",
+      "handler": "Seller.createRelation",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/restaurants/:id/relationships/:relation",
-      "handler": "Restaurant.updateRelation",
+      "path": "/sellers/:id/relationships/:relation",
+      "handler": "Seller.updateRelation",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/restaurants/:id/relationships/:relation",
-      "handler": "Restaurant.destroyRelation",
+      "path": "/sellers/:id/relationships/:relation",
+      "handler": "Seller.destroyRelation",
       "config": {
         "policies": []
       }

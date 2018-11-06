@@ -1,0 +1,31 @@
+{
+  "connection": "default",
+  "collectionName": "customers",
+  "info": {
+    "name": "customer",
+    "description": "Customer Account"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "fullname": {
+      "default": "",
+      "type": "string"
+    },
+    "email": {
+      "default": "",
+      "type": "email"
+    },
+    "phone": {
+      "default": "",
+      "type": "integer"
+    },
+    "password": {
+      "default": "",
+      "type": "password"
+    }
+  }
+}
