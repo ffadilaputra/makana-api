@@ -35,7 +35,8 @@
     "immutable": "^3.8.2",
     "pluralize": "^7.0.0",
     "strapi-generate": "3.0.0-alpha.14.4.0",
-    "strapi-generate-api": "3.0.0-alpha.14.4.0"
+    "strapi-generate-api": "3.0.0-alpha.14.4.0",
+    "snyk": "^1.189.0"
   },
   "deprecated": false,
   "description": "Strapi plugin to create content type (API).",
@@ -72,12 +73,15 @@
     "prepublishOnly": "IS_MONOREPO=true npm run build",
     "prettier": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/prettier --single-quote --trailing-comma es5 --write \"{admin,__{tests,mocks}__}/**/*.js\"",
     "start": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/cross-env NODE_ENV=development node ./node_modules/strapi-helper-plugin/lib/server",
-    "test": "echo \"Error: no test specified\""
+    "test": "echo \"Error: no test specified\"",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "strapi": {
     "name": "Content Type Builder",
     "icon": "paint-brush",
     "description": "content-type-builder.plugin.description"
   },
-  "version": "3.0.0-alpha.14.4.0"
+  "version": "3.0.0-alpha.14.4.0",
+  "snyk": true
 }
