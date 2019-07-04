@@ -39,7 +39,8 @@
     "koa2-ratelimit": "^0.6.1",
     "purest": "^2.0.1",
     "request": "^2.83.0",
-    "uuid": "^3.1.0"
+    "uuid": "^3.1.0",
+    "snyk": "^1.189.0"
   },
   "deprecated": false,
   "description": "Protect your API with a full-authentication process based on JWT",
@@ -76,12 +77,15 @@
     "prepublishOnly": "IS_MONOREPO=true npm run build",
     "prettier": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/prettier --single-quote --trailing-comma es5 --write \"{admin,__{tests,mocks}__}/**/*.js\"",
     "start": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/cross-env NODE_ENV=development node ./node_modules/strapi-helper-plugin/lib/server",
-    "test": "echo \"Error: no test specified\""
+    "test": "echo \"Error: no test specified\"",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "strapi": {
     "name": "Roles & Permissions",
     "icon": "users",
     "description": "users-permissions.plugin.description"
   },
-  "version": "3.0.0-alpha.14.4.0"
+  "version": "3.0.0-alpha.14.4.0",
+  "snyk": true
 }
