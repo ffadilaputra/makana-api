@@ -9,7 +9,9 @@
     "start": "node server.js",
     "strapi": "node_modules/strapi/bin/strapi.js",
     "lint": "node_modules/.bin/eslint api/**/*.js config/**/*.js plugins/**/*.js",
-    "postinstall": "node node_modules/strapi/lib/utils/post-install.js"
+    "postinstall": "node node_modules/strapi/lib/utils/post-install.js",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",
@@ -24,7 +26,8 @@
     "strapi-hook-bookshelf": "3.0.0-alpha.14.4.0",
     "strapi-hook-knex": "3.0.0-alpha.14.4.0",
     "knex": "latest",
-    "mysql": "2.16.0"
+    "mysql": "2.16.0",
+    "snyk": "^1.189.0"
   },
   "author": {
     "name": "ffadilaputra",
@@ -46,5 +49,6 @@
     "node": ">= 9.0.0",
     "npm": ">= 5.0.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "snyk": true
 }

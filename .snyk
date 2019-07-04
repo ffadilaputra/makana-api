@@ -1,0 +1,72 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.13.5
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-450202:
+    - strapi > cheerio > lodash:
+        patched: '2019-07-04T05:47:36.126Z'
+    - lodash:
+        patched: '2019-07-04T05:47:36.126Z'
+    - strapi-hook-knex > lodash:
+        patched: '2019-07-04T05:47:36.126Z'
+    - strapi > lodash:
+        patched: '2019-07-04T05:47:36.126Z'
+    - knex > lodash:
+        patched: '2019-07-04T05:47:36.126Z'
+    - strapi > strapi-generate-api > lodash:
+        patched: '2019-07-04T05:47:36.126Z'
+    - strapi-hook-bookshelf > strapi-utils > lodash:
+        patched: '2019-07-04T05:47:36.126Z'
+    - strapi-hook-bookshelf > strapi-hook-knex > lodash:
+        patched: '2019-07-04T05:47:36.126Z'
+    - strapi-hook-bookshelf > inquirer > lodash:
+        patched: '2019-07-04T05:47:36.126Z'
+    - strapi-hook-bookshelf > bookshelf > lodash:
+        patched: '2019-07-04T05:47:36.126Z'
+    - strapi-hook-knex > knex > lodash:
+        patched: '2019-07-04T05:47:36.126Z'
+    - strapi > async > lodash:
+        patched: '2019-07-04T05:47:36.126Z'
+    - strapi > strapi-generate-service > lodash:
+        patched: '2019-07-04T05:47:36.126Z'
+    - strapi > strapi-generate-policy > lodash:
+        patched: '2019-07-04T05:47:36.126Z'
+    - strapi > strapi-generate-plugin > lodash:
+        patched: '2019-07-04T05:47:36.126Z'
+    - strapi > strapi-utils > lodash:
+        patched: '2019-07-04T05:47:36.126Z'
+    - strapi-hook-bookshelf > lodash:
+        patched: '2019-07-04T05:47:36.126Z'
+    - strapi > strapi-generate > lodash:
+        patched: '2019-07-04T05:47:36.126Z'
+    - strapi > strapi-generate-admin > lodash:
+        patched: '2019-07-04T05:47:36.126Z'
+    - strapi > strapi-generate-new > lodash:
+        patched: '2019-07-04T05:47:36.126Z'
+    - strapi > strapi-generate-controller > lodash:
+        patched: '2019-07-04T05:47:36.126Z'
+    - strapi > strapi-generate-model > lodash:
+        patched: '2019-07-04T05:47:36.126Z'
+    - strapi-hook-bookshelf > strapi-hook-knex > knex > lodash:
+        patched: '2019-07-04T05:47:36.126Z'
+    - strapi > strapi-generate-new > inquirer > lodash:
+        patched: '2019-07-04T05:47:36.126Z'
+    - strapi > strapi-generate-new > strapi-utils > lodash:
+        patched: '2019-07-04T05:47:36.126Z'
+    - strapi > strapi-generate-admin > strapi-utils > lodash:
+        patched: '2019-07-04T05:47:36.126Z'
+    - strapi > strapi-generate > strapi-utils > lodash:
+        patched: '2019-07-04T05:47:36.126Z'
+    - strapi > strapi-generate > async > lodash:
+        patched: '2019-07-04T05:47:36.126Z'
+    - strapi-hook-bookshelf > strapi-utils > knex > lodash:
+        patched: '2019-07-04T05:47:36.126Z'
+    - strapi > strapi-utils > knex > lodash:
+        patched: '2019-07-04T05:47:36.126Z'
+    - strapi > strapi-generate-admin > strapi-utils > knex > lodash:
+        patched: '2019-07-04T05:47:36.126Z'
+    - strapi > strapi-generate-new > strapi-utils > knex > lodash:
+        patched: '2019-07-04T05:47:36.126Z'
+    - strapi > strapi-generate > strapi-utils > knex > lodash:
+        patched: '2019-07-04T05:47:36.126Z'
